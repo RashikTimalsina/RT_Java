@@ -1,0 +1,17 @@
+Try-Catch
+	
+	try
+	{
+	
+	Code that may cause an exception
+	
+	}
+	catch{
+
+
+	Code that we want to execute if this type of exception doesnt meet
+
+
+	}
+ 
+	System.out.println("Final Print this if try command is correct");

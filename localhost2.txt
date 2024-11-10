@@ -1,0 +1,1 @@
+SELECT department.did,department.dname,department.dstaff,department.dbranch,employee.stid,employee.stname,employee.stadd,employee.stgen from department join employee on department.did=employee.tid

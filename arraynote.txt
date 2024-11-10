@@ -1,0 +1,13 @@
+Array:
+	It is a collection of similar types of elements stored in a single name.
+	Array always starts from zero index which means from 0 
+	There are two types of array
+	-single dimension array
+	-multi dimensional array
+Single dimensional array:
+		It stores data in row format.
+		
+Multi dimensional array:
+		It stores data in row and column format.
+	
+			

@@ -1,0 +1,45 @@
+import java.lang.*;
+class Cars
+{
+
+	String name;
+	public Cars(String name)
+	{
+
+	this.name=name;
+	
+
+	}
+
+
+}
+
+class Garage
+{
+
+	public void park(Cars car)
+	{
+
+	System.out.println("The "+car.name+" is parked in the garage");	
+
+	}
+
+
+}
+
+class ObjectsPassedAsArguments
+{
+
+	public static void main(String[] args)
+	{
+
+	Garage garage=new Garage();
+
+	Cars car=new Cars("BMW");
+	
+
+	}
+
+
+
+}

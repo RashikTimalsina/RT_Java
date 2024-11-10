@@ -1,0 +1,5 @@
+Database for Cafe MS
+
+create table tbproduct(Pid int primary key auto_increment ,Nametxt varchar(30),Categorycmb varchar(40),Pricetxt int)
+
+create table tbbill(Bid int primary key auto_increment ,Sellertxt varchar(30),BDate varchar(30),Amount int);

@@ -1,0 +1,26 @@
+Thread:
+             It is a small unit of program.
+              There are multitasking and multithreading programming.
+
+
+MultiTasking:
+                  It executes more than two programs at a time.
+ 
+MultiThreading:
+                    It executes more than two programs at a time.
+
+Every Programs start with
+                                          run() method.
+
+
+                       To execute run() method we use start() function.
+
+Main function is main thread in a program.
+
+It can be done by two processes:
+                      1)  By extending Thread via CLASS
+                       2) By implementing Runnable via INTERFACE
+
+
+
+

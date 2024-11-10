@@ -1,0 +1,22 @@
+
+Abstract Classes and Methods
+
+1) Data abstraction is the process of hiding certain details and showing only essential information to the user.
+
+2) Abstraction can be achieved with either abstract classes or interfaces .
+
+3) The abstract keyword is a non-access modifier, used for classes and methods:
+
+4) Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+5) Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+6)An abstract class must be declared with an abstract keyword.
+
+7)It can have abstract and non-abstract methods.
+
+8) It cannot be instantiated.
+
+9)It can have constructors and static methods also.
+
+10)It can have final methods which will force the subclass not to change the body of the method.

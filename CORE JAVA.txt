@@ -1,0 +1,197 @@
+
+CORE JAVA CONTENTS
+
+
+DATATYPES & VARIABLES
+
+Data Types in Java
+Variables in Java
+Rules for Naming a Variable in Java
+What are Literals in Java
+
+
+
+FEATURES & ARCHITECTURE
+
+Compiler vs Interpreter
+How Java is Platform Independent?
+JVM Architecture
+Features of Java
+
+
+
+OPERATORS & EXPRESSIONS
+
+Arithmetic Operators and Expressions
+Bitwise Operator – AND, OR & XOR
+Bitwise Operator – Left Shift, Right Shift & NOT
+Increment and Decrement Operators
+Bit Masking and Merging
+
+
+
+
+STRING CLASS
+
+Creating String Object
+String Methods
+String Matching with Regular Expression
+
+
+
+
+CONDITIONAL STATEMENTS
+
+if statement
+nested if statement
+if-else statement
+if-else-if statement
+Switch Case Statement
+
+
+
+
+LOOPS
+
+while loop
+do-while loop
+for loop
+enhanced for loop
+
+
+
+
+ARRRAYS
+
+Arrays class in Java
+1D Array
+2D Array
+
+
+
+
+METHODS
+
+Writing Methods in Java
+Passing Object as Parameters
+Parameter Passing in Java
+Variable Arguments
+Command Line Arguments
+Recursion
+Method Overloading
+
+
+
+
+OOP
+
+Principles of Object-Oriented Programming
+Class vs Object
+How to Write a Class
+Constructor
+Inheritance
+Generalization vs Specialization
+What’s inheritance?
+Constructors in Inheritance
+this is super
+Types of Inheritance
+Method Overriding
+Dynamic Method Dispatch
+Polymorphism using Overloading and Overriding
+Abstract Class
+What’s Abstract Class
+Rules of Abstract Class
+Interfaces
+What are Interfaces
+Example of Interface
+Interface vs Multiple Inheritance
+Inner Classes
+Static Members and Blocks
+Final Keyword
+Exception Handling
+What are Exceptions
+How to Handle Exception
+Try and Catch Block
+Multiple & Nested Try Catch
+Checked and Unchecked Exception
+Throw vs Throws
+Finally Block
+
+
+
+MULTITHREADING
+
+What are Multiprogramming
+Multithreading using Thread Class
+Multithreading using Runnable Interface
+States of a Thread
+Thread Priorities, Thread Class
+Thread Methods: Constructors, sleep & Interrupt
+Thread: Daemon, join and yield
+What is Synchronization
+What is a Monitor
+Multithreading using Monitor
+Inter-Thread Communication
+
+
+
+
+JAVA IO STREAMS
+
+What are Streams
+InputStream and OutputStream
+FileOutputStream
+FileInputStream & FileReader
+Buffered Streams and Buffered Reader
+Piped Streams
+Random Access File
+Data Streams
+Serialization
+
+
+
+
+JAVA GENERICS
+
+Introduction to Generics
+Generic Methods
+
+
+
+COLLECTION FRAMEWORK
+
+What are Collections?
+Why Collections are Required?
+Collection Classes in Java
+HashMap and its Internal Working
+HashSet, Treeset
+Compare Interface
+LinkedHashSet
+BitSet
+Arrays and Comparator
+
+
+
+
+DATABASE CONNECTIVITY
+
+JDBC Drivers
+Writing JDBC Programming
+DML (Data Manipulation Language) using JDBC
+DDL (Data Definition Language) using JDBC
+
+
+
+
+JAVA VERSION 8(MOST USED VERSION)
+
+Lambda Expressions
+Syntax
+Rules for writing lambda expressions
+Introduction to Lambda Expression
+Parameters in Lambda Expression
+Method Reference
+Functional Interfaces
+Default Methods
+Java 8 Streams
+Java 8 Date/Time API Changes

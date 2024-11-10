@@ -1,0 +1,15 @@
+PLAYERS
+pid
+pname
+padd
+pgen
+
+
+DEPARTMENT
+did
+pid
+dname
+
+
+
+alter table department add FOREIGN KEY (pid) REFERENCES players(pid);

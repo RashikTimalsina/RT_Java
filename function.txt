@@ -1,0 +1,10 @@
+Function:
+	It is a collection of statements which perform some task.
+	There are two types of function
+	userdefined function
+	predefined function
+Userdefined function:
+	The function which are defined by user is called user defined is called userdefined function.
+Predefined function:
+	The function which are already defined is called predefined function or inbuilt function.
+	sqrt(),pow(),sin(),cos(),etc.

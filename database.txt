@@ -1,0 +1,79 @@
+Database:
+              1)It is  a collection of tables in a managed form.
+              2)It is used to create table,manage tables. 
+              3)It is used for insert,update and delete data in a database.
+
+DBMS (Database Management System):
+                                                                   1)It is used to manage databases.
+                                                                   2)It is an electronic form.
+                                                                   3)Example: SqlServer,MySql,Oracle.
+
+ 
+Table:
+                  Collection of row&column is called table.
+ 
+ 
+Tuple: 
+                   Row in a table is called tuple.
+
+
+Attribute:
+                  Column in a table is called attribute.
+
+Primary key;
+                        It is used to enter only unique data in a table.
+                         Example; Account number
+                                         Student Registration number
+
+
+Foreign key:
+                      It allows to enter only those data which are present in primary key table.
+
+
+Query:
+            It is used to ask anything.
+
+Create database college;			//Creating database
+   
+ 
+     
+Create table staff
+(
+               stid int primary key                      //stid=student id
+               stname varchar (255)                    // stname= student name   , varchar=variable character
+               stadd varchar (255)                        // stadd= student address
+)
+
+// inserts items into column and row of a table
+
+insert into staff(staff, stname, stadd) values(1,'Ram1','ktm');
+insert into staff(staff, stname, stadd) values(2,'Ram2','ktm');
+insert into staff(staff, stname, stadd) values(3,'Ram3','ktm');
+insert into staff(staff, stname, stadd) values(4,'Ram4','ktm');
+insert into staff(staff, stname, stadd) values(5,'Ram5','ktm');
+
+
+select * from staff;			//selects the element from table column
+
+select stname from staff;		//selects particualar row from the table columm
+
+select * from staff where stid=1;	//selects using primary key i.e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

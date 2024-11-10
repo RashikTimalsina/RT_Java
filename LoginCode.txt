@@ -1,0 +1,101 @@
+package dmloperation;
+
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
+public class Login extends javax.swing.JFrame {
+
+    Connection con=null;
+    ResultSet rs=null;
+    PreparedStatement pst=null;
+
+
+    public Login() {
+        initComponents();
+    }
+
+    
+
+   private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {                                        
+
+        if(txtusername.equals(" "))
+        {
+            JOptionPane.showMessageDialog(this, "Please enter user name","Error",JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+        
+        if(txtpassword.equals(" "))
+        {
+            JOptionPane.showMessageDialog(this,"Please enter valid password","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        con=Myconnection.ConnectDB();                    //DB=Database
+
+        String sql= "select * from tbregister where username= ' " + txtusername.getText() + " 'and password=' "+txtpassword.getText()+" '   ";
+
+      try
+      {
+          pst=con.prepareStatement(sql);          //pst=prepared statement
+          rs= pst.executeQuery(); 		//rs=result set
+
+          if (rs.next()){
+
+             this.hide();				//removes LoginIntro and display LoginForm if condition meets
+            TeacherForm t=new TeacherForm();
+            t.setVisible(true);
+          }
+
+          else{			   //if-else is used as conditions in programming
+              
+            JOptionPane.showMessageDialog(null, "Login Failed..Try again !","Access denied",JOptionPane.ERROR_MESSAGE);
+          }
+
+      }catch(SQLException | HeadlessException e){                  //catch is always used with try
+         JOptionPane.showMessageDialog(null, e); 
+          
+    }      
+
+
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                            
+
+       this.hide();   			       //removes LoginForm and display RegisterForm if the condition meets
+        
+        Register r=new Register();
+        r.setVisible(true);
+    }                                           
+
+
+    private void txtpasswordKeyPressed(java.awt.event.KeyEvent evt) {                   //Events>Key>KeyPressed
+                                
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) 
+        {
+          con=Myconnection.ConnectDB(); 
+
+        String sql= "select * from tbregister where username= ' " + txtusername.getText() + " ' and password =' "+txtpassword.getText()+" '   ";
+
+      try
+      {
+          pst=con.prepareStatement(sql);
+          rs= pst.executeQuery();
+
+          if (rs.next()){
+
+             this.hide();		   	//removes RegisterForm and display TeacherForm if the condition meets
+
+            TeacherForm t=new TeacherForm();
+            t.setVisible(true);
+          }
+
+          else{
+              
+            JOptionPane.showMessageDialog(null, "Login Failed..Try again !","Access denied",JOptionPane.ERROR_MESSAGE);
+          }
+
+      }catch(SQLException | HeadlessException e){
+         JOptionPane.showMessageDialog(null, e); 
+          
+    }   
+        }

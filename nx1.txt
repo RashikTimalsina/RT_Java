@@ -1,0 +1,30 @@
+ Loop:
+	It is used to iterate or repeat statements till the condition is true.
+	There are three types of loop
+		for loop		Ex:    to print HelloWorld for fixed number of times i.e 10 times,50 times etc.
+		while loop	                 Ex:    to check the condition first & if true then print Hello World until condition becomes false
+		do while loop	Ex:     to print Hello World first and then check the condition is true/false
+
+For loop:
+	SYNTAX:
+		for(initialization;condition;increment/decrement)		//this loop is used when times to iterate is known
+		{
+			statements; 		//{System.out.println()} and with return values we dont give curly braces
+		} 
+
+
+While Loop
+		initialization; 	//this loop is used to iterate when we dont know for how much time we have to iterate value
+		while(condition)				//first checks condition and executes code
+		{
+			statements;
+			increment/decrement;
+		}
+
+do while loop:
+		initialization;
+		do
+		{
+			statements;			//first executes code then check condition
+			increment/decrement;
+		}while(condition);

@@ -1,0 +1,472 @@
+package classwork;
+
+import java.awt.HeadlessException;
+import java.awt.print.*;
+import java.sql.*;
+import java.text.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.concurrent.locks.StampedLock;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+public class TeacherForm extends javax.swing.JFrame {
+Connection conn=null;
+PreparedStatement pst=null;
+DefaultTableModel dtm;
+    Statement stmt;
+    ResultSet rs;
+    
+     
+    public TeacherForm() {
+        initComponents();
+
+          fillcombox();
+        currentDate();
+    }
+
+
+
+
+    public void currentDate()
+    {
+      Calendar cal=new GregorianCalendar();
+      
+      int month=cal.get(Calendar.MONTH);
+      int year=cal.get(Calendar.YEAR);
+      int day=cal.get(Calendar.DAY_OF_MONTH);
+      date_tx.setText(year+"/"+(month+1)+"/"+day);
+      
+    }
+
+
+
+
+  public void updateTable()
+    {
+        try
+        {
+            conn=Myconnection.ConnectDB();
+            String sql="select * from tbteacher";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            //viewTable.setModel(Dbutils.setM)
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+    }
+
+
+
+     public void fillcombox()
+    {
+        try
+        {
+
+            conn=Myconnection.ConnectDB();
+            String sql="select * from tbteacher";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+
+            while(rs.next())
+            {
+                String name=rs.getString("tid");
+                mycombobox.addItem(name);
+            }
+        }
+
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+        
+
+
+
+    public void showData()
+    {   
+        
+          dtm=(DefaultTableModel)viewTable.getModel();
+        
+          conn=Myconnection.ConnectDB();
+       
+        
+        try{
+
+             stmt=conn.createStatement();
+            String sql="select * from tbteacher";
+             dtm.setRowCount(0);
+            
+           ResultSet rs=stmt.executeQuery(sql);
+
+            while(rs.next()){
+                dtm.addRow(new Object[]{rs.getString("tid"),rs.getString("tfname"),rs.getString("tlname"),rs.getString("taddress")});
+           
+                
+            }
+                conn.close();
+        }
+
+        catch(Exception e){
+
+            System.out.println("not"+e);
+        }
+        
+    }
+
+
+
+    
+    public void myres()			//myres=myreset class
+{
+    tid.setText("");
+    tfname.setText("");
+    tlname.setText("");
+    tAddress.setText("");
+    
+}
+
+
+
+
+ private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        
+        conn=Myconnection.ConnectDB();
+
+         try{
+
+         Statement stmt= conn.createStatement();
+          String qry= "insert into tbteacher(tid,tfname,tlname,taddress)values('"+tid.getText()+"','"+tfname.getText()+"','"+tlname.getText()+"','"+tAddress.getText()+"')";
+            
+          stmt.executeUpdate(qry);
+            
+            
+            JOptionPane.showMessageDialog(this,"Successfully inserted","Teacher",JOptionPane.INFORMATION_MESSAGE);
+ 
+      myres();
+        }
+
+        catch(Exception e)
+        {
+            
+        }
+    }                                       
+
+
+
+
+
+ private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
+       
+        try{
+            conn=Myconnection.ConnectDB();
+
+            String sql= "update tbteacher set tfname='"+tfname.getText()+"',tlname='"+tlname.getText()+ "',taddress='"+tAddress.getText()+"' where tid='"+tid.getText()+ "'";
+
+            pst=conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(this,"Successfully updated","Record",JOptionPane.INFORMATION_MESSAGE);
+
+            myres();
+            
+
+        }catch(HeadlessException | SQLException ex){
+
+            JOptionPane.showMessageDialog(this,ex);
+        }
+    }                                         
+
+
+
+ 
+
+private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        try{
+
+            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION); 
+
+            if (P==0)
+            {
+                conn=Myconnection.ConnectDB();
+                String sql= "delete from tbteacher where tid= '" + tid.getText() + "'";
+                pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+
+          myres();
+
+            }
+
+        }catch(HeadlessException | SQLException ex){
+
+            JOptionPane.showMessageDialog(this,ex);
+        }
+    }                                         
+
+
+
+
+private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+         conn=Myconnection.ConnectDB();
+        String sql= "select * from tbteacher where tid= '" + tid.getText() + "'";
+
+        try
+
+        {
+            pst=conn.prepareStatement(sql);
+            rs= pst.executeQuery();
+
+            if (rs.next()){
+                tfname.setText(rs.getString("tfname"));
+                tfname.setEditable(false);
+
+                tlname.setText(rs.getString("tlname"));
+              tlname.setEditable(false);
+              
+              tAddress.setText(rs.getString("taddress"));
+              tAddress.setEditable(false);
+
+               
+            }
+            else{
+
+                JOptionPane.showMessageDialog(null, "Please enter valid Employee Id!","Access denied",JOptionPane.ERROR_MESSAGE);
+            }
+
+        }catch(SQLException | HeadlessException e){
+
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }                                         
+
+
+
+ private void mycomboboxPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {                                                        
+        String tmp=(String)mycombobox.getSelectedItem();
+            String sq="select * from tbteacher where tid=?";
+           
+        try
+
+        {
+            pst=conn.prepareStatement(sq);
+            pst.setString(1, tmp);
+            
+            
+            rs=pst.executeQuery();
+
+            if(rs.next())
+
+            {
+                String teacherid=rs.getString("tid");
+                tid.setText(teacherid);
+                String teacherfname=rs.getString("tfname");
+                tfname.setText(teacherfname);
+                String teacherlname=rs.getString("tlname");
+                tlname.setText(teacherlname);
+                String teacheraddress=rs.getString("taddress");
+                tAddress.setText(teacheraddress);
+                
+                
+            }
+            
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+    }                                                       
+
+
+
+
+
+ private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        
+        myres();
+    }                                        
+
+
+
+
+
+ private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       
+         try
+        {
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+"B:\\javaphp book\\SL-275-SE6.pdf");
+        }
+        catch(Exception e)
+        {
+        }
+    }          
+
+
+
+
+ private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {                                      
+      
+        try
+        {
+            String sq="select * from tbteacher where tfname=?";
+            pst=conn.prepareStatement(sq);
+            pst.setString(1, txtsearch.getText());
+            
+            
+            
+            rs=pst.executeQuery();
+
+            if(rs.next())
+            {
+                String teacherid=rs.getString("tid");
+                tid.setText(teacherid);
+                String teacherfname=rs.getString("tfname");
+                tfname.setText(teacherfname);
+                String teacherlname=rs.getString("tlname");
+                tlname.setText(teacherlname);
+                String teacheraddress=rs.getString("taddress");
+                tAddress.setText(teacheraddress);
+                
+                
+            }
+            
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+         try
+        {
+            String sq="select * from tbteacher where tid=?";
+            pst=conn.prepareStatement(sq);
+            pst.setString(1, txtsearch.getText());
+            
+            
+            
+            rs=pst.executeQuery();
+
+            if(rs.next())
+            {
+                String teacherid=rs.getString("tid");
+                tid.setText(teacherid);
+                String teacherfname=rs.getString("tfname");
+                tfname.setText(teacherfname);
+                String teacherlname=rs.getString("tlname");
+                tlname.setText(teacherlname);
+                String teacheraddress=rs.getString("taddress");
+                tAddress.setText(teacheraddress);
+                
+                
+            }
+            
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+         try
+        {
+            String sq="select * from tbteacher where tlname=?";
+            pst=conn.prepareStatement(sq);
+            pst.setString(1, txtsearch.getText());
+            
+            
+            
+            rs=pst.executeQuery();
+
+            if(rs.next())
+            {
+                String teacherid=rs.getString("tid");
+                tid.setText(teacherid);
+                String teacherfname=rs.getString("tfname");
+                tfname.setText(teacherfname);
+                String teacherlname=rs.getString("tlname");
+                tlname.setText(teacherlname);
+                String teacheraddress=rs.getString("taddress");
+                tAddress.setText(teacheraddress);
+                
+                
+            }
+            
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+         try
+        {
+            String sq="select * from tbteacher where taddress=?";
+            pst=conn.prepareStatement(sq);
+            pst.setString(1, txtsearch.getText());
+            
+            
+            
+            rs=pst.executeQuery();
+            if(rs.next())
+            {
+                String teacherid=rs.getString("tid");
+                tid.setText(teacherid);
+                String teacherfname=rs.getString("tfname");
+                tfname.setText(teacherfname);
+                String teacherlname=rs.getString("tlname");
+                tlname.setText(teacherlname);
+                String teacheraddress=rs.getString("taddress");
+                tAddress.setText(teacheraddress);
+                
+                
+            }
+            
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }                    
+
+
+
+
+
+ private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {                                         
+  
+         MessageFormat header=new MessageFormat("Report Print");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try
+        {
+           viewTable.print(JTable.PrintMode.NORMAL, header, footer);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }                                        
+
+
+
+
+private void btndisplayMouseClicked(java.awt.event.MouseEvent evt) {                                        
+       
+        showData();
+    }                                       
+
+    
+                      
+             

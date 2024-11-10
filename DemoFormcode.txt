@@ -1,0 +1,63 @@
+package classwork;
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+
+
+public class DemoForm extends javax.swing.JFrame {
+
+    Connection conn=null;
+    ResultSet rs=null;
+          PreparedStatement pst=null;
+          Statement stmt=null;
+          String gender;
+          
+          
+    public DemoForm() {
+        initComponents();
+    }
+
+
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        try{
+        conn=Myconnection.ConnectDB();
+        String sql="insert into demotable(gender,Courses,Country)values(?,?,?)";
+        pst=conn.prepareStatement(sql);
+        if(radioMale.isSelected())
+        
+         {
+          gender="Male";  
+        }
+        if(radioFemale.isSelected())
+        {
+          gender="FeMale";  
+        }
+        pst.setString(1, gender);
+        String cs="";
+        if(chkDance.isSelected())
+        {
+            cs+=chkDance.getText()+" ";
+        }
+        if(chkSing.isSelected())
+        {
+            cs+=chkSing.getText()+" ";
+        }
+        pst.setString(2,cs);
+        String countrys="";
+        countrys=cmbCountry.getSelectedItem().toString();
+        pst.setString(3,countrys);
+        pst.executeUpdate();
+        JOptionPane.showMessageDialog(null, "INSERTED");
+        
+        
+  }
+
+   catch(Exception e)
+{
+    System.out.println(e.getMessage());
+        
+        
+             }
+    }                         

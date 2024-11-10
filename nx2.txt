@@ -1,0 +1,67 @@
+Nested Loop:
+                 Loop inside another loop is called nested loop.
+                
+Nested For Loop:
+                               for(initialization;condition;increment/decrement)
+                             {  
+                                     for(initialization;condition;increment/decrement)
+                                   {
+
+                                          statements;
+                                   }
+
+                         }
+
+
+Nested While Loop:
+                         
+                                 initialization;
+                                 while(condition)
+                                  {
+                                  initialization;
+                                 while(condition)
+                                  {
+                                           statements;
+                                           increment/decrement;
+                                         }
+
+                                           statements;
+                                           increment/decrement;
+                                      }
+
+
+Nested Do-While Loop;
+                                       initialization;
+                                        do
+                                        {
+                                            initialization;
+                                         do
+                                        {
+                                                   statements;
+                                                    increment/decrement;
+
+                                         }while(condition);
+                                                    
+                                                      statements;
+                                                      increment/decrement;
+
+                                         }while(condition);
+
+                        
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

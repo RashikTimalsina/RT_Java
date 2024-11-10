@@ -1,0 +1,20 @@
+
+Interface:
+                 It is used for multiple inheritance. 
+                 It doesn't allow to create object of it.
+                 It uses "implements" keyword.
+                 It doesn't allow to give body part of function.
+  
+
+Abstract class: 
+                 It doesn't allow to create object of it.
+                 It uses "extends" keyword.
+                 It doesn't allow to give body part of function.
+                 For abstract class, it must have abstract function.
+                 
+                 Eg; abstract class ABC
+                        {
+                             public abstract void demo()      
+                        }
+                        
+  

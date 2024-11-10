@@ -1,0 +1,11 @@
+        if(flag==0){
+            lblHide.setIcon(new ImageIcon("D:\\Users\\Rashik Timalsina\\Documents\\NetBeansProjects\\Hotel Management System\\src\\Image\\hide.png"));
+            flag=1;
+            txtPassword.setEchoChar('*');
+        }
+        else{
+            lblHide.setIcon(new ImageIcon("D:\\Users\\Rashik Timalsina\\Documents\\NetBeansProjects\\Hotel Management System\\src\\Image\\show.png"));
+            flag=0;
+            txtPassword.setEchoChar((char)0);
+        }
+    }    

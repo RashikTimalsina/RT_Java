@@ -1,0 +1,14 @@
+N1           txtN1
+N2           txtN2
+
+Addition(btn)                 Subtraction(btn)
+Multiplication(btn)         Division(btn)
+
+
+ 
+Process:
+1) Right click on any btn fillup
+2 Go to events 
+3) Go to action
+4) Go to action performed
+5)Back up to SOURCE

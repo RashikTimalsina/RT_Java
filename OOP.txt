@@ -1,0 +1,16 @@
+import java.lang.*;
+class OOP
+{
+
+	public static void main(String[] args)
+	{
+
+	//OBJECT =an instance of a class that may contain atttributes and methods
+	//EXAMPLE ={ phone,desk, computer,coffee,cup }
+
+
+	}
+
+
+
+}

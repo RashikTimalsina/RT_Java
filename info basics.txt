@@ -1,0 +1,15 @@
+Types of Software
+1)  System 
+2)  Application
+3)  Programming language Eg java,c,c++
+
+
+1 bytes = 1 character
+stored garera rakhxa
+ 
+
+1024 bytes = 1024 characters
+
+
+8 bits = 1 byte (1 character)
+

@@ -1,0 +1,51 @@
+private void btnAdditionActionPerformed(java.awt.event.ActionEvent evt)
+    {
+
+         int a=Integer.parseInt(txtN1.getText());
+         int b=Integer.parseInt(txtN2.getText());
+          int sum=a+b;
+          JOptionPane.showMessageDialog(rootPane,sum);
+
+           resetMe();
+   }
+
+private void btnSubtractionActionPerformed(java.awt.event.ActionEvent evt)
+    {
+
+         int a=Integer.parseInt(txtN1.getText());
+         int b=Integer.parseInt(txtN2.getText());
+          int sub=a-b;
+          JOptionPane.showMessageDialog(rootPane,sub);
+
+         resetMe();
+   }
+
+private void btnMultiplicationActionPerformed(java.awt.event.ActionEvent evt)
+    {
+
+         int a=Integer.parseInt(txtN1.getText());
+         int b=Integer.parseInt(txtN2.getText());
+          int mul=a*b;
+          JOptionPane.showMessageDialog(rootPane,mul);
+
+	resetMe();
+    }
+
+private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt)
+    {
+
+         int a=Integer.parseInt(txtN1.getText());
+         int b=Integer.parseInt(txtN2.getText());
+          int div=a/b;
+         JOptionPane.showMessageDialog(rootPane,div);
+
+	resetMe();
+    }									 															
+											
+  public void resetMe()
+  {
+
+       txtN1.setText("");
+       txtN2.setText("");
+
+  }																																																																																																																												 						    	                                                          						 	

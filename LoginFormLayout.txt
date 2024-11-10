@@ -1,0 +1,44 @@
+Registration.java
+
+Username    _______________
+Password     _______________
+FirstName   ________________
+LastName   _________________
+
+
+Register                  Reset
+
+
+
+
+LoginForm.java
+
+Username   ____________
+Password    ____________
+
+LoginMe               Reset
+               Reset
+
+
+
+
+WELCOME TO DASHBOARD
+
+Label1        ______________
+
+Label2       _______________
+
+Label3       _______________
+
+Label4       ________________
+
+
+Save            Reset          Search            Update          Delete           ShowAll
+
+
+
+
+
+
+
+

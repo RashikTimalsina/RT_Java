@@ -1,0 +1,71 @@
+package classwork;
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.*; 
+
+
+public class Register extends javax.swing.JFrame {    
+Connection conn=null;
+ResultSet rs=null;
+PreparedStatement pst=null;
+    
+
+public Register() {
+        initComponents();
+    }
+
+
+
+public void myreset()
+{
+    txtusername.setText("");
+    txtPassword.setText("");
+    txtFname.setText("");
+    txtLname.setText("");
+}
+
+
+
+
+ private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       
+         conn=Myconnection.ConnectDB();
+
+        try{
+
+         Statement stmt= conn.createStatement();
+      
+      String qry= "insert into tbregister(username,password,fname,lname)values('"+txtusername.getText()+"','"+txtPassword.getText()+"','"+txtFname.getText()+"','"+txtLname.getText()+"')";
+            
+          stmt.executeUpdate(qry);
+            
+            
+            JOptionPane.showMessageDialog(this,"Successfully Registered","Teacher",JOptionPane.INFORMATION_MESSAGE);
+
+       myreset();
+
+       Login l=new Login();
+       l.setVisible(true);
+       this.hide();
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+    }                                           
+
+
+
+
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {                                          
+       
+myreset();
+    }                           
+
+
+
+
+
